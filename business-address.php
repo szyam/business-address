@@ -78,12 +78,12 @@ function bus_add_settings() {
 
 // Add Shortcode
 function bus_add_shortcode() {
-    echo esc_attr( get_option('bus_address') ).', ';
-    echo esc_attr( get_option('bus_city') ).', ';
-    echo esc_attr( get_option('bus_state') ).' ';
-    echo esc_attr( get_option('bus_zip') ).' ';
-    if( !empty(esc_attr( get_option('bus_phone') ))) {
-        echo '<a href="tel:'.esc_attr( get_option('bus_phone') ).'">'.esc_attr( get_option('bus_phone') ).'</a>';
+    echo '<span class="bus-address">'.esc_attr( get_option('bus_address')).'</span>, ';
+    echo '<span class="bus-city">'.esc_attr( get_option('bus_city')).'</span>, ';
+    echo '<span class="bus-state">'.esc_attr( get_option('bus_state')).'</span> ';
+    echo '<span class="bus-zip">'.esc_attr( get_option('bus_zip')).'</span> ';
+    if((esc_attr( get_option('bus_phone') ))) {
+        echo '- <span class="bus-phone"><a href="tel:'.esc_attr( get_option('bus_phone')).'">'.esc_attr( get_option('bus_phone') ).'</a></span>';
     }
 }
 
