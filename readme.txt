@@ -12,4 +12,8 @@ There are no perfect ways to store this information in one place in your site, a
 Place bussiness_address folder in your plugins directory, and activate.
 
 == Frequently Asked Questions ==
-No FAQ yet
+Q: How to display in theme?
+A: You can add a shortcode [business_address] in any page editor, or add directly in template with the do_shortcode() function.
+
+Q: Can I just display part of my address?
+A: As of now, the shortcode will display and fields saved in the settings page. Next release will contain shortcode attributes so you can display different items from the address in different places.
