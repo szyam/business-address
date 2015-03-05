@@ -79,11 +79,11 @@ function bus_add_settings() {
 // Add Shortcode
 function bus_add_shortcode() {
     echo esc_attr( get_option('bus_address') ).', ';
-    echo esc_attr( get_option('bus_city') ).' ';
+    echo esc_attr( get_option('bus_city') ).', ';
     echo esc_attr( get_option('bus_state') ).' ';
     echo esc_attr( get_option('bus_zip') ).' ';
     if( !empty(esc_attr( get_option('bus_phone') ))) {
-        echo '<a href="'.esc_attr( get_option('bus_phone') ).'">'.esc_attr( get_option('bus_phone') ).'</a>';
+        echo '<a href="tel:'.esc_attr( get_option('bus_phone') ).'">'.esc_attr( get_option('bus_phone') ).'</a>';
     }
 }
 
