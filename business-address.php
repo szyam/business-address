@@ -8,7 +8,7 @@ Plugin URI: http://markszymanski.com/
 Description: There are no perfect ways to store this information in one place in your site, and to display it in many places. Some put it in the Theme Customizer, but this isn't the right place for this. Creating a widget is another approach but I find my self using them less and less. 
 Version: 0.0.1
 Author: BraveByt.es
-Author URI: http://bravebyt.es/wordpress-plugins/
+Author URI: https://github.com/szyam/business-address
 License: GPLv2
 Text Domain: business-address
 */
