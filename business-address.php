@@ -76,16 +76,26 @@ function bus_add_settings() {
     register_setting( 'bus_add-settings-group', 'bus_phone' );
 }
 
-// Add Shortcode
+// Add Shortcode for full addy
 function bus_add_shortcode() {
-    echo '<span class="bus-address">'.esc_attr( get_option('bus_address')).'</span>, ';
-    echo '<span class="bus-city">'.esc_attr( get_option('bus_city')).'</span>, ';
-    echo '<span class="bus-state">'.esc_attr( get_option('bus_state')).'</span> ';
-    echo '<span class="bus-zip">'.esc_attr( get_option('bus_zip')).'</span> ';
+    $bus_add_block = '<span class="bus-address-container" itemscope itemtype="http://schema.org/LocalBusiness">';
+    $bus_add_block .= '<span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">';
+    $bus_add_block .= '<span class="bus-address" itemprop="streetAddress">'.esc_attr( get_option('bus_address')).'</span>, ';
+    $bus_add_block .= '<span class="bus-city" itemprop="addressLocality">'.esc_attr( get_option('bus_city')).'</span>, ';
+    $bus_add_block .= '<span class="bus-state" itemprop="addressRegion">'.esc_attr( get_option('bus_state')).'</span> ';
+    $bus_add_block .= '<span class="bus-zip" itemprop="postalCode">'.esc_attr( get_option('bus_zip')).'</span> ';
     if((esc_attr( get_option('bus_phone') ))) {
-        echo '- <span class="bus-phone"><a href="tel:'.esc_attr( get_option('bus_phone')).'">'.esc_attr( get_option('bus_phone') ).'</a></span>';
+        $bus_add_block .= '- <span class="bus-phone" itemprop="telephone"><a href="tel:'.preg_replace("/[^0-9]/","",esc_attr( get_option('bus_phone'))).'">'.esc_attr( get_option('bus_phone') ).'</a></span>';
     }
+    $bus_add_block .= '</span></span><!-- Closing spans -->';
+    return $bus_add_block;
 }
 
 add_shortcode( 'business_address', 'bus_add_shortcode' );
 
+// Telephone
+function bus_add_phone_shortcode() {
+    return '<span class="bus-phone" itemprop="telephone"><a href="tel:'.preg_replace("/[^0-9]/","",esc_attr( get_option('bus_phone'))).'">'.esc_attr( get_option('bus_phone') ).'</a></span>';
+}
+
+add_shortcode( 'business_address_phone', 'bus_add_phone_shortcode' );
