@@ -18,3 +18,4 @@ A: You can add a shortcode [business_address] in any page editor, or add directl
 
 Q: Can I just display part of my address?
 A: As of now, the shortcode will display and fields saved in the settings page. Next release will contain shortcode attributes so you can display different items from the address in different places.
+-- v 0.2 Allows you to use the phone number separately with the shortcode [business_address_phone]. This is also a link to the phone number.
