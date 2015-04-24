@@ -3,7 +3,7 @@ Contributors: Mark Szymanski
 Tested up to: 4.1.1
 License URI: GPLv2
 
-Add Business Address in settings screen, and echo throughout site with a shortcode.
+A WordPress plugin to add a Business Address in settings screen, and echo throughout site with a shortcode.
 
 == Description ==
 Beta
